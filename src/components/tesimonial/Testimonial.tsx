@@ -1,11 +1,18 @@
-import { useState } from "react";
+import {
+  SetStateAction,
+  JSXElementConstructor,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+  useState,
+} from "react";
 import Slider from "react-slick";
 import { RiStarFill } from "react-icons/ri";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 import Title from "../layouts/Title";
 import { testimonialOne, testimonialTwo, quote } from "../../assets";
 
-function SampleNextArrow(props) {
+function SampleNextArrow(props: { onClick: any }) {
   const { onClick } = props;
   return (
     <div
@@ -17,7 +24,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props: { onClick: any }) {
   const { onClick } = props;
   return (
     <div
@@ -37,12 +44,22 @@ const Testimonial = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    beforeChange: (prev, next) => {
+    nextArrow: <SampleNextArrow onClick={undefined} />,
+    prevArrow: <SamplePrevArrow onClick={undefined} />,
+    beforeChange: (next: SetStateAction<number>) => {
       setDocActive(next);
     },
-    appendDots: (dots) => (
+    appendDots: (
+      dots:
+        | string
+        | number
+        | boolean
+        | ReactElement<any, string | JSXElementConstructor<any>>
+        | Iterable<ReactNode>
+        | ReactPortal
+        | null
+        | undefined
+    ) => (
       <div
         style={{
           borderRadius: "10px",
@@ -62,7 +79,7 @@ const Testimonial = () => {
         </ul>
       </div>
     ),
-    customPaging: (i) => (
+    customPaging: (i: number) => (
       <div
         style={
           i === dotActive
