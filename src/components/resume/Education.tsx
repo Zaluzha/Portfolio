@@ -1,6 +1,5 @@
-import React from 'react'
-import { motion } from 'framer-motion';
-import ResumeCard from './ResumeCard';
+import { motion } from "framer-motion";
+import ResumeCard from "./ResumeCard";
 
 const Education = () => {
   return (
@@ -66,6 +65,6 @@ const Education = () => {
       </div>
     </motion.div>
   );
-}
+};
 
-export default Education
+export default Education;

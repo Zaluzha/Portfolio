@@ -1,15 +1,21 @@
-import React, {  useState } from 'react'
-import Title from '../layouts/Title';
-import Education from './Education';
-import Skills from './Skills';
-import Achievement from './Achievement';
-import Experience from "./Experience"
+import { useState } from "react";
+import Title from "../layouts/Title";
+import Education from "./Education";
+import Skills from "./Skills";
+import Achievement from "./Achievement";
+import Experience from "./Experience";
 
 const Resume = () => {
-   const [educationData, setEducationData] = useState(true);
-   const [skillData, setSkillData] = useState(false);
-   const [experienceData, setExperienceData] = useState(false);
-   const [achievementData, setAchievementData] = useState(false);
+  const [activeTab, setActiveTab] = useState<
+    "education" | "skills" | "experience" | "achievement"
+  >("education");
+
+  const handleTabClick = (
+    tab: "education" | "skills" | "experience" | "achievement"
+  ) => {
+    setActiveTab(tab);
+  };
+
   return (
     <section id="resume" className="w-full py-20 border-b-[1px] border-b-black">
       <div className="flex justify-center items-center text-center">
@@ -18,14 +24,9 @@ const Resume = () => {
       <div>
         <ul className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
           <li
-            onClick={() =>
-              setEducationData(true) &
-              setSkillData(false) &
-              setExperienceData(false) &
-              setAchievementData(false)
-            }
+            onClick={() => handleTabClick("education")}
             className={`${
-              educationData
+              activeTab === "education"
                 ? "border-designColor rounded-lg"
                 : "border-transparent"
             } resumeLi`}
@@ -33,27 +34,19 @@ const Resume = () => {
             Education
           </li>
           <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(true) &
-              setExperienceData(false) &
-              setAchievementData(false)
-            }
+            onClick={() => handleTabClick("skills")}
             className={`${
-              skillData ? "border-designColor rounded-lg" : "border-transparent"
+              activeTab === "skills"
+                ? "border-designColor rounded-lg"
+                : "border-transparent"
             } resumeLi`}
           >
             Professional Skills
           </li>
           <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(false) &
-              setExperienceData(true) &
-              setAchievementData(false)
-            }
+            onClick={() => handleTabClick("experience")}
             className={`${
-              experienceData
+              activeTab === "experience"
                 ? "border-designColor rounded-lg"
                 : "border-transparent"
             } resumeLi`}
@@ -61,14 +54,9 @@ const Resume = () => {
             Experience
           </li>
           <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(false) &
-              setExperienceData(false) &
-              setAchievementData(true)
-            }
+            onClick={() => handleTabClick("achievement")}
             className={`${
-              achievementData
+              activeTab === "achievement"
                 ? "border-designColor rounded-lg"
                 : "border-transparent"
             } resumeLi`}
@@ -77,13 +65,12 @@ const Resume = () => {
           </li>
         </ul>
       </div>
-      {educationData && <Education />}
-      {skillData && <Skills />}
-      {achievementData && <Achievement />}
-      {experienceData && <Experience />}
- 
+      {activeTab === "education" && <Education />}
+      {activeTab === "skills" && <Skills />}
+      {activeTab === "achievement" && <Achievement />}
+      {activeTab === "experience" && <Experience />}
     </section>
   );
-}
+};
 
-export default Resume
+export default Resume;

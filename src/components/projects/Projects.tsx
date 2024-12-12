@@ -1,7 +1,6 @@
-import React from 'react'
-import Title from '../layouts/Title'
+import Title from "../layouts/Title";
 import { projectOne, projectTwo, projectThree } from "../../assets/index";
-import ProjectsCard from './ProjectsCard';
+import ProjectsCard from "./ProjectsCard";
 
 const Projects = () => {
   return (
@@ -55,6 +54,6 @@ const Projects = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Projects
+export default Projects;

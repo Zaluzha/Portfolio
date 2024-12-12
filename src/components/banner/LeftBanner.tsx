@@ -1,4 +1,3 @@
-import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Media from "./Media";
 
@@ -20,7 +19,7 @@ const LeftBanner = () => {
         <h2 className="text-4xl font-bold text-white">
           a <span>{text}</span>
           <Cursor
-            cursorBlinking="false"
+            cursorBlinking={false}
             cursorStyle="|"
             cursorColor="#32CD30"
           />

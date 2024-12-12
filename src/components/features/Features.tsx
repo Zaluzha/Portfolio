@@ -1,4 +1,3 @@
-import React from "react";
 import Title from "../layouts/Title";
 import Card from "./Card";
 import { featuresData } from "../../data/data";

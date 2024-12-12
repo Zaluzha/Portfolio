@@ -1,5 +1,4 @@
-import React from 'react'
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const Skills = () => {
   return (
@@ -161,6 +160,6 @@ const Skills = () => {
       </div>
     </motion.div>
   );
-}
+};
 
-export default Skills
+export default Skills;

@@ -1,7 +1,13 @@
 import React from "react";
 import { HiArrowRight } from "react-icons/hi";
 
-const Card = ({ item: { title, des, icon } }) => {
+interface CardProps {
+  title: string;
+  des: string;
+  icon?: React.ReactNode;
+}
+
+const Card: React.FC<CardProps> = ({ title, des, icon }) => {
   return (
     <div className="w-full px-12 h-80 py-10 rounded-lg shadow-shadowOne flex items-center bg-gradient-to-r from-bodyColor to-[#1A4314] group hover:bg-gradient-to-b hover:from-black hover:to-[#2C5E1A] transition-colors duration-100 group">
       <div className="h-72 overflow-y-hidden">
