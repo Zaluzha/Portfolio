@@ -20,11 +20,11 @@ module.exports = {
       colors: {
         bodyColor: "#000000",
         lightText: "#c4cfde",
-        boxBg: "linear-gradient(145deg, #1A4314, #1A4314)",
+        boxBg: "linear-gradient(145deg, #1e2024, #23272b)",
         designColor: "#32CD30",
       },
       boxShadow: {
-        shadowOne: "10px 10px 19px #1c1e22, -10px -10px 19px #1A4314",
+        shadowOne: "10px 10px 19px #1c1e22, -10px -10px 19px #082407",
       },
     },
   },
