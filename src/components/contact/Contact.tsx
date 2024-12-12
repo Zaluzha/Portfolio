@@ -19,7 +19,7 @@ const Contact = () => {
   };
   // ========== Email Validation end here ================
 
-  const handleSend = (e) => {
+  const handleSend = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (username === "") {
       setErrMsg("Username is required!");
@@ -27,7 +27,7 @@ const Contact = () => {
       setErrMsg("Phone number is required!");
     } else if (email === "") {
       setErrMsg("Please give your Email!");
-    } else if (!emailValidation(email)) {
+    } else if (!emailValidation()) {
       setErrMsg("Give a valid Email!");
     } else if (subject === "") {
       setErrMsg("Plese give your Subject!");
@@ -136,8 +136,6 @@ const Contact = () => {
                   className={`${
                     errMsg === "Message is required!" && "outline-designColor"
                   } contactTextArea`}
-                  cols="30"
-                  rows="8"
                 ></textarea>
               </div>
               <div className="w-full">
